@@ -6,7 +6,26 @@ spring:
   profiles:
     #环境配置
     active: dev
+  main:
+    allow-bean-definition-overriding: true
+
+
   cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+      routes:
+        - id: cloud-security
+          uri: lb://cloud-security
+          predicates:
+            - Path=/cloud-security/**
+          filters:
+            - StripPrefix=1
+
+
+
     nacos:
       username: nacos
       password: nacos
@@ -21,18 +40,19 @@ spring:
         # 共享配置
         shared-dataids: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
 
-feign:
-  hystrix:
-    enabled: true
-  httpclient:
-    #设置超时时间，避免第一次请求报错
-    connection-timeout: 10000
-ribbon:
-  eager-load:
-    #开启饥饿加载
-    enabled: true
-    #指定需要饥饿加载的服务名
-    clients: cloud-security
+
+#feign:
+#  hystrix:
+#    enabled: true
+#  httpclient:
+#    #设置超时时间，避免第一次请求报错
+#    connection-timeout: 10000
+#ribbon:
+#  eager-load:
+#    #开启饥饿加载
+#    enabled: true
+#    #指定需要饥饿加载的服务名
+#    clients: cloud-security
 #    sentinel:
 #      # 取消控制台懒加载
 #      eager: true

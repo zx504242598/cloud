@@ -9,7 +9,6 @@
         <version>1.0.0</version>
     </parent>
     <artifactId>cloud-security</artifactId>
-    <name>cloud-security</name>
     <description>cloud-security权限管理模块</description>
 
 

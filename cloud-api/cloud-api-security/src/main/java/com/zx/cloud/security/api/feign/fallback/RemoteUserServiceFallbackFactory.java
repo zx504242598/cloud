@@ -1,7 +1,8 @@
-package com.zx.cloud.gateway.feign.fallback;
+package com.zx.cloud.security.api.feign.fallback;
 
 import com.zx.cloud.common.result.R;
-import com.zx.cloud.gateway.feign.RemoteUserService;
+import com.zx.cloud.security.api.feign.RemoteUserService;
+
 
 import org.springframework.stereotype.Component;
 

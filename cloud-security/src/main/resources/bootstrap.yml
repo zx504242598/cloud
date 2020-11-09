@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: cloud-security
+  main:
+    allow-bean-definition-overriding: true
   profiles:
     #环境配置
     active: dev
@@ -20,7 +22,6 @@ spring:
         file-extension: yml
         # 共享配置
         shared-dataids: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-
 #    sentinel:
 #      # 取消控制台懒加载
 #      eager: true
@@ -39,8 +40,7 @@ spring:
 #            groupId: DEFAULT_GROUP
 #            data-type: json
 #            rule-type: flow
-swagger:
-  base-package: com.zx.cloud
+
 
 
 
