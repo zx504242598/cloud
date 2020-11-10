@@ -4,13 +4,13 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.zx</groupId>
+        <groupId>com.zx.cloud</groupId>
         <artifactId>cloud</artifactId>
         <version>1.0.0</version>
     </parent>
-    <groupId>com.zx.cloud</groupId>
+
     <artifactId>cloud-common</artifactId>
-    <name>cloud-common</name>
+
     <description>cloud-common公共模块</description>
 
 
