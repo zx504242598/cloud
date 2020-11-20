@@ -17,7 +17,6 @@
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
         <docker.image.prefix>zx</docker.image.prefix>
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
-        <swagger2.version>2.9.2</swagger2.version>
         <druid.version>1.1.21</druid.version>
         <nacos.version>0.2.7</nacos.version>
         <jdbc.version>8.0.22</jdbc.version>
@@ -25,7 +24,9 @@
         <velocity.version>2.0</velocity.version>
         <maven.plugin.version>2.3.0.RELEASE</maven.plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <swagger.version>1.9.1.RELEASE</swagger.version>
+        <com.spring4all.swagger.version>1.9.1.RELEASE</com.spring4all.swagger.version>
+        <springfox.swagger2.version>2.9.2</springfox.swagger2.version>
+        <flowable.version>6.6.0</flowable.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -109,7 +110,18 @@
             <dependency>
                 <groupId>com.spring4all</groupId>
                 <artifactId>swagger-spring-boot-starter</artifactId>
-                <version>${swagger.version}</version>
+                <version>${com.spring4all.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger2.version}</version>
             </dependency>
 
             <!--数据库连接池-->
@@ -119,6 +131,12 @@
                 <version>${druid.version}</version>
             </dependency>
 
+            <!--flowable工作流依赖-->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
@@ -150,5 +168,6 @@
         <module>cloud-common</module>
         <module>cloud-security</module>
         <module>cloud-gateway</module>
+        <module>cloud-flowable</module>
     </modules>
 </project>
