@@ -24,6 +24,12 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: cloud-flowable
+          uri: lb://cloud-flowable
+          predicates:
+            - Path=/cloud-flowable/**
+          filters:
+            - StripPrefix=1
 
 
     nacos:
