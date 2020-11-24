@@ -1,5 +1,7 @@
 package com.zx.cloud.flowable.vo;
 
+import java.util.Map;
+
 import lombok.Data;
 
 /**
@@ -9,5 +11,9 @@ import lombok.Data;
 @Data
 public class TaskVO {
     private String id;
-    private String name;
+
+    private String taskName;
+
+    private Map<String,Object> variables;
+
 }
