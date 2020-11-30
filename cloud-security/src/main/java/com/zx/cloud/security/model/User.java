@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.sun.istack.internal.NotNull;
+
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -37,11 +37,9 @@ public class User extends Model<User> {
     private String id;
 
     @ApiModelProperty(value = "用户名")
-    @NotNull
     private String username;
 
     @ApiModelProperty(value = "密码")
-    @NotNull
     private String password;
 
     private String role;
