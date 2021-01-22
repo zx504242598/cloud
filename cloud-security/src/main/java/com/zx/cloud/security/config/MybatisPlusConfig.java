@@ -1,11 +1,18 @@
 package com.zx.cloud.security.config;
 
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.optimize.JsqlParserCountOptimize;
 
+import org.apache.ibatis.reflection.MetaObject;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.time.LocalDateTime;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *
@@ -15,6 +22,7 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 @MapperScan("com.zx.cloud.security.mapper")
+@Slf4j
 public class MybatisPlusConfig {
 
     @Bean
@@ -27,6 +35,24 @@ public class MybatisPlusConfig {
         // 开启 count 的 join 优化,只针对部分 left join
         paginationInterceptor.setCountSqlParser(new JsqlParserCountOptimize(true));
         return paginationInterceptor;
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public MetaObjectHandler metaObjectHandler(){
+        return new MetaObjectHandler() {
+            @Override
+            public void insertFill(MetaObject metaObject) {
+                this.strictInsertFill(metaObject, "createTime", LocalDateTime.class, LocalDateTime.now()); // 起始版本 3.3.0(推荐使用)
+                this.strictInsertFill(metaObject, "updateTime", LocalDateTime.class, LocalDateTime.now()); // 起始版本 3.3.0(推荐使用)
+
+            }
+
+            @Override
+            public void updateFill(MetaObject metaObject) {
+                this.strictUpdateFill(metaObject, "updateTime", LocalDateTime.class, LocalDateTime.now()); // 起始版本 3.3.0(推荐使用)
+            }
+        };
     }
 
 

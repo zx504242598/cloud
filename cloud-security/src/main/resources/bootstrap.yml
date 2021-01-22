@@ -40,6 +40,12 @@ spring:
 #            groupId: DEFAULT_GROUP
 #            data-type: json
 #            rule-type: flow
+swagger:
+  title: ${spring.application.name}
+  base-package: com.zx.cloud.security.controller
+  contact:
+    email: 504242598@qq.com
+    name: zhaoxuan
 
 
 

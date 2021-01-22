@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.zx.cloud.security.model.BaseModel;
 
 
 /**
@@ -58,10 +59,11 @@ public class Generator {
         stConfig.setCapitalMode(true)
                 // 数据库表映射到实体的命名策略
                 .setNaming(NamingStrategy.underline_to_camel)
-                .setLogicDeleteFieldName("IS_DELETE")
+                .setLogicDeleteFieldName("is_delete")
+                .setSuperEntityClass(BaseModel.class)
                 // 生成的表
                 .setEntityLombokModel(true)
-                .setInclude("USER");
+                .setInclude("user");
 
         stConfig.setRestControllerStyle(true).setColumnNaming(NamingStrategy.underline_to_camel);
 
