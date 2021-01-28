@@ -1,6 +1,9 @@
 package com.zx.cloud.security.model;
 
 import java.io.Serializable;
+
+import javax.validation.constraints.NotBlank;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -24,9 +27,11 @@ public class User extends BaseModel<User> implements Serializable {
     private static final long serialVersionUID = 2218852405680608228L;
 
     @ApiModelProperty(value = "用户名")
+    @NotBlank
     private String username;
 
     @ApiModelProperty(value = "密码")
+    @NotBlank
     private String password;
 
     private String role;

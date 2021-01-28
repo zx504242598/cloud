@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.zx.cloud.common.interceptor.GlobalDefaultExceptionHandler
+  com.zx.cloud.common.interceptor.GlobalDefaultExceptionHandler,\
+  com.zx.cloud.common.aop.WebLogAspect

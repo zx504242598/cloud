@@ -37,7 +37,7 @@ public class UserController {
         return R.ok(userService.list());
     }
 
-    @PostMapping("/notAuth/register")
+    @PostMapping("/register")
     public R<?> register(@Validated@RequestBody User user){
         userService.register(user);
         return R.ok();

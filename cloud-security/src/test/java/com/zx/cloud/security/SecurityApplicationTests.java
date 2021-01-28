@@ -8,9 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Random;
-import java.util.stream.Stream;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,8 +29,31 @@ class SecurityApplicationTests {
     }
 
     public static void main(String[] args) {
-        Random random = new Random();
-        random.setSeed(new Date().getTime());
-        Stream.generate(()->random.nextInt(10)).limit(10).forEach(System.out::println);
+/*
+        String content = "http://demo1.zxzxzx.fun:8080/tasks/jumpUrl";
+        String logoPath = "D:/logo.png";
+        String format = "jpg";
+        int width = 180;
+        int height = 220;
+        BitMatrix bitMatrix = QrCodeUtil.setBitMatrix(content, width, height);
+        // 可通过输出流输出到页面,也可直接保存到文件
+        OutputStream outStream = null;
+        String path = "d:/qr"+new Date().getTime()+".png";
+        try {
+            outStream = new FileOutputStream(new File(path));
+            QrCodeUtil.writeToFile(bitMatrix, format, outStream, logoPath);
+            outStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+*/
+
+        //System.out.println(QrCodeUtil.decodeQR(path));
+/*        // 添加文字效果
+        int fontSize = 12; // 字体大小
+        int fontStyle = 1; // 字体风格
+        String text = "测试二维码";
+        String withTextPath = "d:/text"+new Date().getTime()+".png";
+        QrCodeUtil.pressText(text, withTextPath, path, fontStyle, Color.BLUE, fontSize, width, height);*/
     }
 }
