@@ -47,6 +47,9 @@ swagger:
     email: 504242598@qq.com
     name: zhaoxuan
 
+feign:
+  hystrix:
+    enabled: true
 
 
 
